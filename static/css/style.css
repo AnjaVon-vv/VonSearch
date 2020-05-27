@@ -35,8 +35,8 @@ dl, dt, dd, ol, ul, li{ list-style:none;}
 *html .ue-clear{height:1%;}
 .ue-clear{display:block;}
 
-a{color:#41D1B4;}
-a:hover{color:#41D1B4;text-decoration:underline;}
+a{color:#A593E0;}
+a:hover{color:#A593E0;text-decoration:underline;}
 /*logo样式*/
 .logo{width:160px;height:47px;padding:0 5px;background: url(../images/logo1.png) no-repeat center center #fff;}
 
@@ -58,7 +58,7 @@ a:hover{color:#41D1B4;text-decoration:underline;}
 /*分页样式*/
 .pagination a{color: #032F54;border-color:#8EB2D2;}
 .pagination a:hover{color:#023054;border-color:#8EB2D2;background:#B8DFFB;}
-.pagination .current{color:#fff;border-color:#5c9bc4;background:#41D1B4;}
+.pagination .current{color:#fff;border-color:#5c9bc4;background:#A593E0;}
 .pagination .current.prev, .pagination .current.next{color:#B9B9B9;border-color:#D3D3D3;background:#fff;}
 .pagination .pxofy{color: #023054;}
 

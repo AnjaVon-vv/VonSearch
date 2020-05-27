@@ -14,13 +14,12 @@
 	<div id="bd">
         <div id="main">
         	<h1 class="title">
-            	<a href="https://www.jianshu.com/u/db9a7a0daa1f"><div class="logo large"></div></a>
+            	<a href=#><div class="logo large"></div></a>
             </h1>
             <div class="nav ue-clear">
             	<ul class="searchList">
-                    <li class="searchItem current" data-type="article">伯乐文章</li>
-                    <li class="searchItem" data-type="question">知乎问答</li>
-                    <li class="searchItem" data-type="job">拉勾职位</li>
+                    <li class="searchItem current" data-type="article">游戏与科技</li>
+                    <li class="searchItem" data-type="question">RAWЯ!</li>
                 </ul>
             </div>
             <div class="inputArea">
@@ -36,15 +35,16 @@
             </div>
 
             <div class="historyArea">
-            	<p class="history">
-                    <label>热门搜索：</label>
-                    {% for search_word in topn_search %}
-                        <a href='/search?q={{ search_word }}&s_type=article'>{{ search_word }}</a>
-                    {% endfor %}
-                </p>
+{#            	<p class="history">#}
+{#                    <label>热门搜索：</label>#}
+{#                    {% for searchwds in top3Search %}#}
+{#                        <a href='/search?q={{ searchwds }}&s_type=article'>{{ searchwds }}</a>#}
+{#                    {% endfor %}#}
+{#                </p>#}
                 <p class="history mysearch">
-                	<label>我的搜索：</label>
+                	<label>搜索历史：</label>
                     <span class="all-search">
+                        <a href="javascript:;"></a>
                         <a href="javascript:;"></a>
                         <a href="javascript:;"></a>
                         <a href="javascript:;"></a>
@@ -58,7 +58,7 @@
 
     <div class="foot">
     	<div class="wrap">
-            <div class="copyright">Copyright &copy;search.mtianyan.cn 版权所有  E-mail:search@mtianyan.cn</div>
+            <div class="copyright">Copyright &copy; Von  版权所有  E-mail:AQIyou@yeah.net</div>
         </div>
     </div>
 </div>

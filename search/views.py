@@ -1,9 +1,19 @@
 from django.shortcuts import render
+from django.views.generic.base import View
 
 # Create your views here.
+# __author__: 'Von'
+
+
+# class IndexView(View):
+#     # 首页top3
+#     def get(self, request):
+#         top3Search = redisClient.zrevrangebyscore("keywdsCnt", "+inf", "-inf", start=0, num=3)
+#         return render(request, "index.html", {"top3Search": top3Search})
+
+
 
 import json
-from django.views.generic.base import View
 from django.http import HttpResponse
 from search.models import tgbusType
 
@@ -32,9 +42,27 @@ class SearchSuggest(View):
 from elasticsearch import Elasticsearch
 client = Elasticsearch(hosts=["192.168.1.106"])
 
+import redis
+redisClient = redis.StrictRedis(host='192.168.1.106')
+
+from datetime import datetime
+
 class SearchView(View):
     def get(self, request):
         keywds = request.GET.get("q", "")
+
+        # redisClient.zincrby("keywdsCnt", 1, keywds)
+        # top3Search = redisClient.zrevrangebyscore("keywdsCnt", "+inf", "-inf", start=0, num=3)
+
+        page = request.GET.get("p", "1")
+        try:
+            page = int(page)
+        except:
+            page = 1
+
+        tgbusCnt = redisClient.get("tgbusCnt")
+
+        startTime = datetime.now()
         response = client.search(
             index= "tgbus",
             body={
@@ -45,7 +73,7 @@ class SearchView(View):
 
                     }
                 },
-                "form": 0,
+                "form": (page - 1) * 13,
                 "size": 13, # 用于分页
                 "highlight":{ # 搜索词高亮处理
                     "pre_tags": ['<span  style="color:#A593E0">'],
@@ -58,7 +86,13 @@ class SearchView(View):
             }
         )
         # 搜索结果总数
+        endTime = datetime.now()
+        lastTime = (endTime - startTime).total_seconds()
         totalNum = response["hits"]["total"]
+        if(page%13) > 0:
+            pageNum = int(totalNum/13 + 1)
+        else:
+            pageNum = int(totalNum/13)
         hit_list =[]
         for hit in response["hits"]["hits"]:
             hit_dict = {}
@@ -78,4 +112,10 @@ class SearchView(View):
 
             hit_list.append(hit_dict)
 
-        return render(request, "result.html", {"all_hits": hit_list, "keywds":keywds})
+        return render(request, "result.html", {"page": page,
+                                           "all_hits": hit_list,
+                                           "keywds": keywds,
+                                           "totalNum": totalNum,
+                                           "lastNum": lastTime,
+                                           "tgbusCnt": tgbusCnt,})
+                                           # "top3Search": top3Search})

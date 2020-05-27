@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>这里是详情页| Von's  辣鸡搜索引擎</title>
+<title>这里是详情页| Von</title>
 <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'css/result.css' %}" rel="stylesheet" type="text/css" />
 </head>
@@ -14,15 +14,14 @@
 	<div id="hd" class="ue-clear">
     	<a href="{% url 'index' %}"><div class="logo"></div></a>
         <div class="inputArea">
-        	<input type="text" class="searchInput" value="{{ keywds}}"/>
+        	<input type="text" class="searchInput" value="{{ keywds }}"/>
             <input type="button" class="searchButton" onclick="add_search()"/>
         </div>
     </div>
     <div class="nav">
     	<ul class="searchList">
-            <li class="searchItem {% ifequal s_type "article" %}current{% endifequal %}" data-type="article">伯乐文章</li>
-            <li class="searchItem {% ifequal s_type "question" %}current{% endifequal %}" data-type="question">知乎问答</li>
-            <li class="searchItem {% ifequal s_type "job" %}current{% endifequal %}" data-type="job">拉勾职位</li>
+            <li class="searchItem" data-type="article">游戏与科技</li>
+            <li class="searchItem {% ifequal s_type "question" %}current{% endifequal %}" data-type="question">RAWЯ!</li>
         </ul>
     </div>
 	<div id="bd" class="ue-clear">
@@ -33,17 +32,13 @@
                 实时已爬取数据统计</div>
                 <ul class="subfieldContext">
                 	<li>
-                    	<span class="name">伯乐在线</span>
-						<span class="unit">{{jobbole_count}}</span>
+                    	<span class="name">电玩巴士</span>
+						<span class="unit">{{ tgbusCnt }}</span>
                     </li>
                     <li>
-                    	<span class="name">知乎</span>
-						<span class="unit">{{zhihu_count}}</span>
-                    </li>
-                    <li>
-                    	<span class="name">拉勾网</span>
-						<span class="unit">{{job_count}}</span>
-                    </li>
+                    	<span class="name">RAWЯ!</span>
+{#						<span class="unit">RAWЯ!</span>#}
+
 <!--                     <li class="more">
                     	<a href="javascript:;">
                         	<span class="text">更多</span>
@@ -59,7 +54,7 @@
             </div>
             <div class="resultArea">
             	<p class="resultTotal">
-                	<span class="info">找到约&nbsp;<span class="totalResult">{{ total_nums }}</span>&nbsp;条结果(用时<span class="time">{{ last_seconds }}</span>秒)，共约<span class="totalPage">{{ page_nums }}</span>页</span>
+                	<span class="info">找到&nbsp;<span class="totalResult">{{ totalNum }}</span>&nbsp;条结果(用时<span class="time">{{ lastTime }}</span>秒)，共约<span class="totalPage">{{ pagNum }}</span>页</span>
                 </p>
                 <div class="resultList">
 
@@ -102,16 +97,16 @@
 
 
             <div class="historyArea">
-            	<div class="hotSearch">
-                	<h6>热门搜索</h6>
-                    <ul class="historyList">
-                        {% for search in topn_search %}
-                        <li><a href="/search?q={{ search }}&s_type=article">{{ search }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
+{#            	<div class="hotSearch">#}
+{#                	<h6>热门搜索</h6>#}
+{#                    <ul class="historyList">#}
+{#                        {% for search in top3Search %}#}
+{#                        <li><a href="/search?q={{ search }}&s_type=article">{{ search }}</a></li>#}
+{#                        {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
                 <div class="mySearch">
-                	<h6>我的搜索</h6>
+                	<h6>搜索历史</h6>
                     <ul class="historyList">
 
                     </ul>
@@ -121,7 +116,7 @@
     </div><!--End of bd-->
 </div>
 
-<div id="foot">Copyright &copy;search.mtianyan.cn 版权所有  E-mail:search@mtianyan.cn</div>
+<div id="foot">Copyright &copy; Von  版权所有  E-mail:AQIyou@yeah.net</div>
 </body>
 <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
@@ -175,9 +170,9 @@
     });
 	var keywds = "{{ keywds }}"
 	//分页
-	$(".pagination").pagination({{ total_nums }}, {
+	$(".pagination").pagination({{ totalNum }}, {
 		current_page :{{ page|add:'-1' }}, //当前页码
-		items_per_page :10,
+		items_per_page :13,
 		display_msg :true,
 		callback :pageselectCallback
 	});

@@ -12,24 +12,19 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
-
-# urlpatterns = [
-#     path('admin/', admin.site.urls),
-# ]
-
-from django .conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
-from search.views import SearchSuggest
+
+from search.views import SearchSuggest, SearchView
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'$', TemplateView.as_view(template_name="index.html"), name="index"),
-    url(r'^suggestions/$', SearchSuggest.as_view(), name="suggestions"),
-    url(r'^search/$', SearchSuggest.as_view(), name="search"),
+    path('admin/', admin.site.urls),
+    # path('', IndexView.as_view(), name="index"),
+    path('', TemplateView.as_view(template_name="index.html"), name="index"),
+    path('suggestions/', SearchSuggest.as_view(), name="suggestions"),
+    path('search/', SearchView.as_view(), name="search"),
 ]
-
 
