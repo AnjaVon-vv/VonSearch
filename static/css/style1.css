@@ -101,7 +101,7 @@ table.linehei50 td, table.linehei50 th {
 }
 
 .bg403 {
-    background: #8dd5f5;
+    background: #D1B6E1;
 }
 
 .bg404 {
@@ -109,7 +109,7 @@ table.linehei50 td, table.linehei50 th {
 }
 
 .bg503 {
-    background: #72bcc5;
+    background: #D1B6E1;
 }
 
 caption {
@@ -493,7 +493,7 @@ caption {
 }
 
 .header .top .userdetail .btn a:hover {
-    background: #4FB137;
+    background: #A593E0;
 }
 
 .header .top .userdetail .btn a.fl {
@@ -563,11 +563,11 @@ caption {
 }
 
 .loginbtn:hover {
-    background: #4FB137;
+    background: #A593E0;
 }
 
 .registerbtn:hover {
-    background: #4FB137;
+    background: #A593E0;
 }
 
 .dialog-open,
@@ -853,7 +853,7 @@ textarea:focus {
 }
 
 .dialogbox .btn {
-    color: #4FB137;
+    color: #A593E0;
     cursor: pointer;
 }
 
@@ -861,7 +861,7 @@ textarea:focus {
     width: 100%;
     height: 45px;
     line-height: 45px;
-    background: #5dbf45;
+    background: #9055A2;
     color: #fff;
     margin: 0;
     border: 0;
@@ -879,7 +879,7 @@ textarea:focus {
 }
 
 .dialogbox .button:hover {
-    background: #4FB137;
+    background: #A593E0;
 }
 
 .registbox {
@@ -896,7 +896,7 @@ textarea:focus {
 }
 
 .registbox .tab .active {
-    color: #4FB137;
+    color: #A593E0;
 }
 
 .registbox .tab div {
@@ -920,7 +920,7 @@ textarea:focus {
     position: absolute;
     right: 3px;
     top: 3px;
-    background: #5dbf45;
+    background: #9055A2;
     z-index: 99;
     height: 39px;
     line-height: 39px;
@@ -934,7 +934,7 @@ textarea:focus {
 }
 
 .registbox .box .sendcode:hover {
-    background: #4FB137;
+    background: #A593E0;
 }
 
 .registbox .valcode {
@@ -945,7 +945,7 @@ textarea:focus {
     right: 0;
     top: -90px;
     background: #fff;
-    border: 1px solid #4FB137;
+    border: 1px solid #A593E0;
     z-index: 100;
     overflow: hidden;
 }
@@ -996,7 +996,7 @@ textarea:focus {
 }
 
 .dialogbox .captcha {
-    background: #4FB137;
+    background: #A593E0;
     position: absolute;
     right: 5px;
     top: 5px;
@@ -7833,7 +7833,7 @@ footer .footer .line {
 
 .pay_demo {
     background: #ffffff;
-    border-top: 4px solid #5dceba;
+    border-top: 4px solid #9055A2;
     padding: 28px 30px;
 }
 
@@ -7852,7 +7852,7 @@ footer .footer .line {
 }
 
 .pay_demo .pb a {
-    color: #5ecfbb;
+    color: #9055A2;
     font-size: 18px;
 }
 
@@ -8036,7 +8036,7 @@ footer .footer .line {
 }
 
 .upload-btn:hover {
-    background: #5dbf45;
+    background: #9055A2;
 }
 
 table .upload-btn {
@@ -8450,7 +8450,7 @@ table .upload-btn {
 }
 
 .btn-green:hover {
-    background: #5dbf45;
+    background: #9055A2;
 }
 
 .btn-w100 {
@@ -8617,11 +8617,11 @@ table .upload-btn {
 }
 
 .help_content .crumbs a:hover {
-    color: #00ad29;
+    color: #6C49B8;
 }
 
 .help_content .crumbs .colorgreen {
-    color: #01a469;
+    color: #6C39A8;
 }
 
 .help_content .leftsubnav {
@@ -8638,7 +8638,7 @@ table .upload-btn {
 }
 
 .help_content .leftsubnav ul li.on {
-    background: #00ad29;
+    background: #6C49B8;
 }
 
 .help_content .leftsubnav ul li.on a {
@@ -8822,7 +8822,7 @@ table .upload-btn {
 .help_content .rightcontent ul.two a.active,
 .help_content .rightcontent dd a:hover,
 .help_content .rightcontent dd a.active {
-    color: #00ad29;
+    color: #6C49B8;
 }
 
 ::-webkit-input-placeholder {
@@ -8876,7 +8876,7 @@ table .upload-btn {
 }
 
 .diary-edit:hover{
-    background:#00ad29;
+    background:#6C49B8;
 }
 
 .delete-diary-pic{
@@ -9010,7 +9010,7 @@ table .upload-btn {
 }
 
 .list .right .hd-btn:hover{
-    background:#00ad29;
+    background:#6C49B8;
 }
 
 #MsgDot{
@@ -9062,7 +9062,7 @@ table .upload-btn {
 
 .my-diary-step .step li.active:hover{
     background: #717171;
-    border: 3px solid #b6e2ac;
+    border: 3px solid #AAABD3;
 }
 
 .my-diary-step .step li:hover{

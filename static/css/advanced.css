@@ -14,7 +14,7 @@ html{*overflow:auto;}
 .divsion{margin-bottom:24px;height:36px;background:#f9f9f9;border-bottom:1px solid #e0e0e0;}
 
 /*高级搜索区域*/
-.subfield{border-left:4px solid #9cc813;font-size:14px;font-weight:bold;padding:2px 0 2px 20px;}
+.subfield{border-left:4px solid #9055A2;font-size:14px;font-weight:bold;padding:2px 0 2px 20px;}
 .subfieldContent{padding-left:140px;padding-bottom:40px;}
 .subfieldContent .advanceItem{padding-left:350px;margin-bottom:15px;padding-top:8px;padding-bottom:3px;}
 .subfieldContent .advanceItem.keyWords{background:#f4f4f4;padding-top:18px;padding-bottom:3px;}

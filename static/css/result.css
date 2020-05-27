@@ -15,7 +15,7 @@ html{*overflow:auto;}
 .nav{margin-bottom:24px;height:31px;background:#f9f9f9;border-bottom:1px solid #e0e0e0;padding:5px 0 0 210px;}
 .searchList{float:left;padding-left:5px;}
 .searchList .searchItem{float:left;margin-right:15px;font-size:14px;padding:0 3px 2px 3px;cursor:pointer;height:26px; line-height:26px;}
-.searchList .searchItem.current{color:#0080cc;border-bottom:3px solid #41D1B4;font-weight:bold;}
+.searchList .searchItem.current{color:#0080cc;border-bottom:3px solid #A593E0;font-weight:bold;}
 .nav .tips{color:#969696;font-size:12px;line-height:24px;*line-height:26px;}
 #container.sideBarHide .nav{padding-left:35px;}
 
@@ -62,13 +62,13 @@ html{*overflow:auto;}
 .resultArea .resultList .itemHead .keyWord{color:#d90909;}
 .resultArea .resultList .itemBody .keyWord{color:#d90909;}
 .resultArea .resultList .itemHead a.title{font-size:16px;color:#0080cc;text-decoration:underline;}
-.resultArea .resultList .itemHead .value{color:#41D1B4;}
+.resultArea .resultList .itemHead .value{color:#A593E0;}
 .resultArea .resultList .itemHead .divsion{margin:0 5px;}
 .resultArea .resultList .itemHead .fileType{margin-right:10px;}
 
 /*搜索内容主体*/
 .resultArea .resultList .itemBody{margin-bottom:5px;line-height:18px;width:90%;}
-.resultArea .resultList .itemFoot{color:#41D1B4;}
+.resultArea .resultList .itemFoot{color:#A593E0;}
 .resultArea .resultList .itemFoot .info{margin-right:10px;}
 
 .resultArea .pagination{margin-bottom:25px;padding-left:32px;}
@@ -90,7 +90,7 @@ html{*overflow:auto;}
 
 /*左侧分栏区域*/
 .subfield{margin-bottom:5px;font-size:14px;font-weight:bold;padding:2px 0 2px 24px;}
-.subfield:first-child{border-left:4px solid #41D1B4;padding-left:20px;}
+.subfield:first-child{border-left:4px solid #A593E0;padding-left:20px;}
 
 
 

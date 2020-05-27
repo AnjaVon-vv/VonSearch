@@ -42,8 +42,8 @@ class SearchSuggest(View):
 from elasticsearch import Elasticsearch
 client = Elasticsearch(hosts=["192.168.1.106"])
 
-import redis
-redisClient = redis.StrictRedis(host='192.168.1.106')
+# import redis
+# redisClient = redis.StrictRedis(host='192.168.1.106')
 
 from datetime import datetime
 
@@ -60,7 +60,7 @@ class SearchView(View):
         except:
             page = 1
 
-        tgbusCnt = redisClient.get("tgbusCnt")
+        tgbusCnt = 9997
 
         startTime = datetime.now()
         response = client.search(
@@ -70,17 +70,16 @@ class SearchView(View):
                     "multi_match":{
                         "query": keywds,
                         "fields":["keywords", "title", "abstract", "content"]
-
                     }
                 },
-                "form": (page - 1) * 13,
+                "from": (page - 1) * 13,
                 "size": 13, # 用于分页
                 "highlight":{ # 搜索词高亮处理
                     "pre_tags": ['<span  style="color:#A593E0">'],
                     "post_tags": ['</span>'],
                     "fields":{
-                        "title":{},
-                        "content":{},
+                        "title": {},
+                        "content": {},
                     }
                 }
             }
