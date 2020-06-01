@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.views.generic.base import View
 
@@ -23,15 +24,15 @@ class SearchSuggest(View):
         returnData = []
         if keywds:
             s = tgbusType.search()
-            s.suggest('vonSuggest', keywds, completion={
-                "field": "suggestions",
+            s = s.suggest('vonSuggest', keywds, completion={
+                "field": "suggestion",
                 "fuzzy":{
                     "fuzziness": 3
                 },
                 "size": 7
             })
-            sug = s.execute_suggest()
-            for match in sug.vonSuggest[0].options:
+            sug = s.execute()
+            for match in sug.suggest.vonSuggest[0].options:
                 source = match._source
                 returnData.append(source["title"])
         return HttpResponse(json.dumps(returnData), content_type="application/json")
@@ -42,8 +43,6 @@ class SearchSuggest(View):
 from elasticsearch import Elasticsearch
 client = Elasticsearch(hosts=["192.168.1.106"])
 
-# import redis
-# redisClient = redis.StrictRedis(host='192.168.1.106')
 
 from datetime import datetime
 
@@ -54,6 +53,7 @@ class SearchView(View):
         # redisClient.zincrby("keywdsCnt", 1, keywds)
         # top3Search = redisClient.zrevrangebyscore("keywdsCnt", "+inf", "-inf", start=0, num=3)
 
+
         page = request.GET.get("p", "1")
         try:
             page = int(page)
@@ -61,6 +61,9 @@ class SearchView(View):
             page = 1
 
         tgbusCnt = 9997
+        # import redis
+        # redisClient = redis.StrictRedis(host='192.168.1.106')
+        # tgbusCnt = redisClient.get("tgbusCnt")
 
         startTime = datetime.now()
         response = client.search(
@@ -72,6 +75,13 @@ class SearchView(View):
                         "fields":["keywords", "title", "abstract", "content"]
                     }
                 },
+                "sort": [
+                    {
+                        "PR": {
+                            "order": "desc"
+                        }
+                    }
+                ],
                 "from": (page - 1) * 13,
                 "size": 13, # 用于分页
                 "highlight":{ # 搜索词高亮处理
@@ -95,19 +105,24 @@ class SearchView(View):
         hit_list =[]
         for hit in response["hits"]["hits"]:
             hit_dict = {}
-            if "title" in hit["highlight"]:
-                hit_dict["title"] = "".join(hit["highlight"]["title"])
-            else:
-                hit_dict["title"] = hit["_source"]["title"]
-            if "content" in hit["highlight"]:
-                hit_dict["content"] = "".join(hit["highlight"]["content"])[:300]
+            if "highlight" in hit:
+                if "title" in hit["highlight"]:
+                    hit_dict["title"] = "".join(hit["highlight"]["title"])
+                else:
+                    hit_dict["title"] = hit["_source"]["title"]
+
+                if "content" in hit["highlight"]:
+                    hit_dict["content"] = "".join(hit["highlight"]["content"])[:300]
+                else:
+                    hit_dict["content"] = hit["_source"]["content"][:300]
             else:
                 hit_dict["content"] = hit["_source"]["content"][:300]
+                hit_dict["title"] = hit["_source"]["title"]
 
             hit_dict["author"] = hit["_source"]["author"]
             hit_dict["pubTime"] = hit["_source"]["pubTime"]
             hit_dict["url"] = hit["_source"]["url"]
-            hit_dict["score"] = hit["_score"]
+            hit_dict["PR"] = hit["_source"]["PR"]
 
             hit_list.append(hit_dict)
 
